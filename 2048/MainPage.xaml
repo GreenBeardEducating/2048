@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="_2048.MainPage">
+
+    <Grid>
+        <VerticalStackLayout x:Name="MenuView" Padding="30" Spacing="16" VerticalOptions="Center">
+            <Label Text="2048" FontSize="48" FontAttributes="Bold" HorizontalOptions="Center" />
+            <Button Text="Нова гра" Clicked="OnStartClicked" />
+            <Button Text="Зберегти" Clicked="OnMenuSaveClicked" />
+            <Button Text="Вихід" Clicked="OnExitClicked" />
+            <Label x:Name="MenuMessageLabel" HorizontalOptions="Center" />
+        </VerticalStackLayout>
+
+        <ScrollView x:Name="GameView" IsVisible="False">
+            <VerticalStackLayout Padding="20" Spacing="12" HorizontalOptions="Center">
+                <HorizontalStackLayout Spacing="12" HorizontalOptions="Center">
+                    <Button Text="Меню" Clicked="OnMenuClicked" />
+                    <Label Text="2048" FontSize="32" FontAttributes="Bold" VerticalOptions="Center" />
+                    <Button Text="Зберегти" Clicked="OnSaveClicked" />
+                </HorizontalStackLayout>
+                <Button Text="Нова гра" Clicked="OnNewGameClicked" HorizontalOptions="Center" />
+
+                <Label x:Name="ScoreLabel" Text="Рахунок: 0" FontSize="20" HorizontalOptions="Center" />
+                <Label x:Name="MessageLabel" HorizontalOptions="Center" />
+
+                <Grid x:Name="BoardGrid"
+                      WidthRequest="320"
+                      HeightRequest="320"
+                      Padding="6"
+                      BackgroundColor="#BBADA0"
+                      RowSpacing="6"
+                      ColumnSpacing="6">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                </Grid>
+
+                <Grid ColumnSpacing="8" RowSpacing="8" HorizontalOptions="Center">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="70" />
+                        <ColumnDefinition Width="70" />
+                        <ColumnDefinition Width="70" />
+                    </Grid.ColumnDefinitions>
+                    <Button Grid.Row="0" Grid.Column="1" Text="↑" FontSize="24" Clicked="OnUpClicked" />
+                    <Button Grid.Row="1" Grid.Column="0" Text="←" FontSize="24" Clicked="OnLeftClicked" />
+                    <Button Grid.Row="1" Grid.Column="1" Text="↓" FontSize="24" Clicked="OnDownClicked" />
+                    <Button Grid.Row="1" Grid.Column="2" Text="→" FontSize="24" Clicked="OnRightClicked" />
+                </Grid>
+            </VerticalStackLayout>
+        </ScrollView>
+    </Grid>
+
+</ContentPage>
